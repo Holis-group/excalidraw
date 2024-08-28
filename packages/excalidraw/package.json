@@ -1,6 +1,6 @@
 {
-  "name": "@excalidraw/excalidraw",
-  "version": "0.17.1",
+  "name": "holis-excalidraw",
+  "version": "1.0.1",
   "main": "./dist/prod/index.js",
   "type": "module",
   "module": "./dist/prod/index.js",
@@ -22,15 +22,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Excalidraw as a React component",
-  "repository": "https://github.com/excalidraw/excalidraw",
+  "description": "Holis version of Excalidraw as a React component",
+  "repository": "https://github.com/Holis-group/excalidraw",
   "license": "MIT",
   "keywords": [
     "excalidraw",
     "excalidraw-embed",
     "react",
     "npm",
-    "npm excalidraw"
+    "custom excalidraw"
   ],
   "browserslist": {
     "production": [
@@ -57,19 +57,11 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "6.0.2",
-    "@excalidraw/laser-pointer": "1.3.1",
-    "@excalidraw/mermaid-to-excalidraw": "1.1.0",
-    "@excalidraw/random-username": "1.1.0",
     "@radix-ui/react-popover": "1.0.3",
     "@radix-ui/react-tabs": "1.0.2",
-    "@tldraw/vec": "1.7.1",
     "browser-fs-access": "0.29.1",
-    "canvas-roundrect-polyfill": "0.0.1",
     "clsx": "1.1.1",
     "cross-env": "7.0.3",
-    "fractional-indexing": "3.2.0",
-    "fuzzy": "0.1.3",
-    "image-blob-reduce": "3.0.1",
     "jotai": "1.13.1",
     "lodash.throttle": "4.1.1",
     "nanoid": "3.3.3",
@@ -77,9 +69,6 @@
     "pako": "1.0.11",
     "perfect-freehand": "1.2.0",
     "pica": "7.1.1",
-    "png-chunk-text": "1.0.0",
-    "png-chunks-encode": "1.0.0",
-    "png-chunks-extract": "1.0.0",
     "points-on-curve": "1.0.1",
     "pwacompat": "2.0.17",
     "roughjs": "4.6.4",
@@ -104,7 +93,6 @@
     "@types/resize-observer-browser": "0.1.7",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.5",
-    "babel-plugin-transform-class-properties": "6.24.1",
     "cross-env": "7.0.3",
     "css-loader": "6.7.1",
     "dotenv": "16.0.1",
@@ -122,14 +110,18 @@
     "ts-loader": "9.3.1",
     "typescript": "4.9.4"
   },
-  "bugs": "https://github.com/excalidraw/excalidraw/issues",
-  "homepage": "https://github.com/excalidraw/excalidraw/tree/master/packages/excalidraw",
+  "bugs": {
+    "url": "https://github.com/Holis-group/excalidraw/issues"
+  },
+  "homepage": "https://github.com/Holis-group/excalidraw#readme",
   "scripts": {
-    "gen:types": "rm -rf types && tsc",
-    "build:esm": "rm -rf dist && node ../../scripts/buildPackage.js && yarn gen:types",
+    "gen:types": "if exist types rmdir /s /q types && tsc",
+    "build:esm": "if exist dist rmdir /s /q dist && node ..\\..\\scripts\\buildPackage.js && yarn gen:types",
+    "build:umd": "if exist dist rmdir /s /q dist && cross-env NODE_ENV=production webpack --config webpack.prod.config.js && cross-env NODE_ENV=development webpack --config webpack.dev.config.js && yarn gen:types",
     "pack": "yarn build:umd && yarn pack",
-    "start": "node ../../scripts/buildExample.mjs && vite",
-    "build:example": "node ../../scripts/buildExample.mjs",
-    "size": "yarn build:umd && size-limit"
+    "start": "node ..\\..\\scripts\\buildExample.mjs && vite",
+    "build:example": "node ..\\..\\scripts\\buildExample.mjs",
+    "size": "yarn build:umd && size-limit",
+    "build:package": "node ..\\..\\scripts\\buildPackage.js && tsc"
   }
 }
