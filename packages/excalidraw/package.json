@@ -1,5 +1,5 @@
 {
-  "name": "holis-excalidraw",
+  "name": "hol-excalidraw",
   "version": "1.0.1",
   "main": "./dist/prod/index.js",
   "type": "module",
