@@ -59,6 +59,7 @@ const ALLOWED_DOMAINS = new Set([
   "stackblitz.com",
   "val.town",
   "giphy.com",
+  "staging.holis.cloud"
 ]);
 
 const ALLOW_SAME_ORIGIN = new Set([
@@ -71,6 +72,7 @@ const ALLOW_SAME_ORIGIN = new Set([
   "x.com",
   "*.simplepdf.eu",
   "stackblitz.com",
+  "staging.holis.cloud"
 ]);
 
 export const createSrcDoc = (body: string) => {
