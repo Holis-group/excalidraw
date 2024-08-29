@@ -1,6 +1,6 @@
 {
   "name": "hol-excalidraw",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "./dist/prod/index.js",
   "type": "module",
   "module": "./dist/prod/index.js",
